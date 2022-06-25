@@ -3,6 +3,8 @@
 #include <stdint.h>
 #include "mcp23S17.h"
 
+MCP_PIN_15 = PIN(15, 0);
+MCP_PIN_0 = PIN(0, 0);
 
 int main() {
     mcp23S17_init();
