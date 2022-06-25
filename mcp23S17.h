@@ -28,28 +28,28 @@ enum {
 uint8_t _reg[22];   // Local mirrors of the 22 internal registers of the MCP23S17 chip
 uint8_t _addr = 0; // é o endereço do componenet, que pé definido como 0 pela gente arbitrairamente
 
-_reg[MCP_IODIRA] = 0xFF;
-_reg[MCP_IODIRB] = 0xFF;
-_reg[MCP_IPOLA] = 0x00;
-_reg[MCP_IPOLB] = 0x00;
-_reg[MCP_GPINTENA] = 0x00;
-_reg[MCP_GPINTENB] = 0x00;
-_reg[MCP_DEFVALA] = 0x00;
-_reg[MCP_DEFVALB] = 0x00;
-_reg[MCP_INTCONA] = 0x00;
-_reg[MCP_INTCONB] = 0x00;
-_reg[MCP_IOCONA] = 0x18;
-_reg[MCP_IOCONB] = 0x18;
-_reg[MCP_GPPUA] = 0x00;
-_reg[MCP_GPPUB] = 0x00;
-_reg[MCP_INTFA] = 0x00;
-_reg[MCP_INTFB] = 0x00;
-_reg[MCP_INTCAPA] = 0x00;
-_reg[MCP_INTCAPB] = 0x00;
-_reg[MCP_GPIOA] = 0x00;
-_reg[MCP_GPIOB] = 0x00;
-_reg[MCP_OLATA] = 0x00;
-_reg[MCP_OLATB] = 0x00;
+_reg[MCP_IODIRA] = 255;
+_reg[MCP_IODIRB] = 255;
+_reg[MCP_IPOLA] = 0;
+_reg[MCP_IPOLB] = 0;
+_reg[MCP_GPINTENA] = 0;
+_reg[MCP_GPINTENB] = 0;
+_reg[MCP_DEFVALA] = 0;
+_reg[MCP_DEFVALB] = 0;
+_reg[MCP_INTCONA] = 0;
+_reg[MCP_INTCONB] = 0;
+_reg[MCP_IOCONA] = 24;
+_reg[MCP_IOCONB] = 24;
+_reg[MCP_GPPUA] = 0;
+_reg[MCP_GPPUB] = 0;
+_reg[MCP_INTFA] = 0;
+_reg[MCP_INTFB] = 0;
+_reg[MCP_INTCAPA] = 0;
+_reg[MCP_INTCAPB] = 0;
+_reg[MCP_GPIOA] = 0;
+_reg[MCP_GPIOB] = 0;
+_reg[MCP_OLATA] = 0;
+_reg[MCP_OLATB] = 0;
 
 void mcp23S17_init();
 void writeAll();
