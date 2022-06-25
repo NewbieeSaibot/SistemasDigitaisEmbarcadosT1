@@ -2,10 +2,13 @@
 #include "digital.h"
 #include "delay.h"
 
-uint8_t PINO_CS = PIN(20, 0);
-uint8_t PINO_MISO = PIN(21, 0);
-uint8_t PINO_MOSI = PIN(22, 0);
-uint8_t PINO_CLOCK = PIN(23, 0);
+
+void spi_init(){
+    pinMode(PINO_CS, OUTPUT);
+    pinMode(PINO_CLOCK, OUTPUT);
+    pinMode(PINO_MOSI, OUTPUT);
+    pinMode(PINO_MISO, INPUT);
+}
 
 
 void spi_habilita(){
