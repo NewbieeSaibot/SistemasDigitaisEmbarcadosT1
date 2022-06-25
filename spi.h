@@ -2,15 +2,8 @@
 #define __SPI__
 
 #include <stdint.h>
-
-#define PIN(P,B) ((P<<5)|B)
-#define INPUT 1
-#define OUTPUT 0
-#define HIGH 1
-#define LOW 0
-
-
-
+#include "digital.h"
+#include "delay.h"
 // CS = Chip Select
 // SPI um protocolo de comunicação da nossa versão
 // I2c que a gente poderia mas não vai utilizar porque nosso componente está preparado apenas para comunicação SPI
@@ -25,10 +18,10 @@ void spi_habilita(); // coloca o CS (enable / disable do componente) para 0, ist
 void spi_desabilita(); // coloca o CS (enable / disable do componente) para 1, isto é, desliga o dispositivo
 uint8_t spi_write(uint8_t byte); // Escreve no MOSI (master output, slave input). Começa do bit mais significativo para o menos significativo
 
-uint8_t pino_CS = PIN(20, 0);
-uint8_t pino_MISO = PIN(21, 0);
-uint8_t pino_MOSI = PIN(22, 0);
-uint8_t pino_CLOCK = PIN(23, 0);
+uint8_t CS = PIN(20,0);
+uint8_t MISO = PIN(21,0);
+uint8_t MOSI = PIN(22,0);
+uint8_t CLOCK = PIN(23,0);
 
 // algo write
 // primeiro escrever o byte no pino mosi

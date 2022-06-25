@@ -4,12 +4,7 @@
 #include <stdint.h>
 #include<stdio.h>
 #include "spi.h"
-
-#define PIN(P,B) ((P<<5)|B)
-#define INPUT 1
-#define OUTPUT 0
-#define HIGH 1
-#define LOW 0
+#include "digital.h"
 
 enum {
         MCP_IODIRA,     MCP_IODIRB,
