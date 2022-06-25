@@ -1,9 +1,9 @@
 #include "mcp23S17.h"
 #include "LPC17xx.h"
-#include "spi.h"
 
 
 void mcp23S17_init(){
+    spi_init();
     spi_desabilita();
     spi_habilita();
 

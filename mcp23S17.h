@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include<stdio.h>
+#include "spi.h"
 
 #define PIN(P,B) ((P<<5)|B)
 #define INPUT 1

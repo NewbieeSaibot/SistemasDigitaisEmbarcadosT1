@@ -1,48 +1,23 @@
-// EXEMPLO DE UM Pisca Pisca que usa a Lampada do kit
-// para compilar:  
-//                    make
-// para gravar na placa (usando o bootloader): 
-//                   lpc21isp -control -bin main.bin /dev/ttyUSB0 115200 12000
-//
-// para gravar na placa (usando o JTAG)
-//                   openocd -f lpc1768.cfg
-// abrir outro shell
-// telnet localhost 4444
-// > reset halt
-// > flash write_image erase main.bin 0x0 bin
-
-
 #include "LPC17xx.h"
 #include "digital.h"
 #include <stdint.h>
-#include "periodica.h"
-#include "delay.h"
-#include "uart.h"
-
+#include "mcp23S17.h"
 
 
 int main() {
+    mcp23S17_init();
+    mcp23S17_configura_pino(MCP_PIN_15, INPUT);
+    mcp23S17_configura_pino(MCP_PIN_0 , OUTPUT);
 
-  SystemInit();
-  UART0_Init(9600);
-  periodica_init();
-  delay_init();
-  seg_init( );
-   
-  uint16_t x;
-  delay_ms(1000);
-  for (uint16_t v=0;v<9999;v++)
-  {
-  	printf("Entre com o numero \n");
-  	scanf("%d",&x);
-  	seg_apresenta(x);
-  	
-  }
-  while(1){}
- 
- 
- 
- 
- 
- 
+    while(1) {
+        mcp23S17_escreve_pino(MCP_PIN_0, HIGH);
+        delay_ms(1000);
+        mcp23S17_escreve_pino(MCP_PIN_0, LOW);
+        delay_ms(1000);
+
+        if (mcp23S17_le_pino(MCP_PIN_15)==HIGH) {
+            printf("Botao em VCC\n");
+        }
+            else printf("Botao em GND\n");
+        }
 }
