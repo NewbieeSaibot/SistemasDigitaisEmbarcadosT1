@@ -6,19 +6,28 @@
 #include "spi.h"
 #include "digital.h"
 
-enum {
-        MCP_IODIRA,     MCP_IODIRB,
-        MCP_IPOLA,      MCP_IPOLB,
-        MCP_GPINTENA,   MCP_GPINTENB,
-        MCP_DEFVALA,    MCP_DEFVALB,
-        MCP_INTCONA,    MCP_INTCONB,
-        MCP_IOCONA,     MCP_IOCONB,
-        MCP_GPPUA,      MCP_GPPUB,
-        MCP_INTFA,      MCP_INTFB,
-        MCP_INTCAPA,    MCP_INTCAPB,
-        MCP_GPIOA,      MCP_GPIOB,
-        MCP_OLATA,      MCP_OLATB
-    };
+uint8_t MCP_IODIRA = 0;
+uint8_t MCP_IODIRB = 1;
+uint8_t MCP_IPOLA = 2;
+uint8_t MCP_IPOLB = 3;
+uint8_t MCP_GPINTENA = 4;
+uint8_t MCP_GPINTENB = 5;
+uint8_t MCP_DEFVALA = 6;
+uint8_t MCP_DEFVALB = 7;
+uint8_t MCP_INTCONA = 8;
+uint8_t MCP_INTCONB = 9;
+uint8_t MCP_IOCONA = 10;
+uint8_t MCP_IOCONB = 11;
+uint8_t MCP_GPPUA = 12;
+uint8_t MCP_GPPUB = 13;
+uint8_t MCP_INTFA = 14;
+uint8_t MCP_INTFB = 15;
+uint8_t MCP_INTCAPA = 16;
+uint8_t MCP_INTCAPB = 17;
+uint8_t MCP_GPIOA = 18;
+uint8_t MCP_GPIOB = 19;
+uint8_t MCP_OLATA = 20;
+uint8_t MCP_OLATB = 21;
 
 uint8_t _reg[22];   // Local mirrors of the 22 internal registers of the MCP23S17 chip
 uint8_t _addr = 0; // é o endereço do componenet, que pé definido como 0 pela gente arbitrairamente
