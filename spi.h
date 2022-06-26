@@ -13,11 +13,6 @@ void spi_habilita(); // coloca o CS (enable / disable do componente) para 0, ist
 void spi_desabilita(); // coloca o CS (enable / disable do componente) para 1, isto é, desliga o dispositivo
 uint8_t spi_write(uint8_t byte); // Escreve no MOSI (master output, slave input). Começa do bit mais significativo para o menos significativo
 
-uint8_t CS;
-uint8_t MISO;
-uint8_t MOSI;
-uint8_t CLOCK;
-
 // algo write
 // primeiro escrever o byte no pino mosi
 // colocar clock nivel alto

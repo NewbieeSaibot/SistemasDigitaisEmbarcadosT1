@@ -1,5 +1,9 @@
 #include "spi.h"
 
+uint8_t CS;
+uint8_t MISO;
+uint8_t MOSI;
+uint8_t CLOCK;
 
 void spi_init(){
     CS = PIN(20,0);

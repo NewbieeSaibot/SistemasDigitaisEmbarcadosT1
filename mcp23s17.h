@@ -28,9 +28,6 @@
 #define MCP_OLATA 20
 #define MCP_OLATB 21
 
-uint8_t _reg[22];   // Local mirrors of the 22 internal registers of the MCP23S17 chip
-uint8_t _addr = 0; // é o endereço do componenet, que pé definido como 0 pela gente arbitrairamente
-
 void mcp23S17_init();
 void writeAll();
 void le_registrador(uint8_t addr);

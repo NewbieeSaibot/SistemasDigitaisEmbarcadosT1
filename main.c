@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdint.h>
 #include "mcp23s17.h"
 
