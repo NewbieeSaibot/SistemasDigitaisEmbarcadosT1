@@ -1,8 +1,5 @@
-#include "LPC17xx.h"
-#include "digital.h"
 #include <stdint.h>
 #include "mcp23s17.h"
-#include "delay.h"
 
 MCP_P_15 = PIN(15,0);
 MCP_P_0 = PIN(0,0);

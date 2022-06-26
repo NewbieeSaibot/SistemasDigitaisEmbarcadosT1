@@ -2,6 +2,10 @@
 
 
 void spi_init(){
+    CS = PIN(20,0);
+    MISO = PIN(21,0);
+    MOSI = PIN(22,0);
+    CLOCK = PIN(23,0);
     pinMode(CS, OUTPUT);
     pinMode(CLOCK, OUTPUT);
     pinMode(MOSI, OUTPUT);

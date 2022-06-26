@@ -1,5 +1,4 @@
 #include "mcp23s17.h"
-#include "LPC17xx.h"
 
 
 void mcp23S17_init(){

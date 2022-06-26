@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include<stdio.h>
 #include "spi.h"
-#include "digital.h"
 
 #define MCP_IODIRA 0
 #define MCP_IODIRB 1
