@@ -1,8 +1,32 @@
-#include "mcp23S17.h"
+#include "mcp23s17.h"
 #include "LPC17xx.h"
 
 
 void mcp23S17_init(){
+
+    _reg[MCP_IODIRA] = 255;
+    _reg[MCP_IODIRB] = 255;
+    _reg[MCP_IPOLA] = 0;
+    _reg[MCP_IPOLB] = 0;
+    _reg[MCP_GPINTENA] = 0;
+    _reg[MCP_GPINTENB] = 0;
+    _reg[MCP_DEFVALA] = 0;
+    _reg[MCP_DEFVALB] = 0;
+    _reg[MCP_INTCONA] = 0;
+    _reg[MCP_INTCONB] = 0;
+    _reg[MCP_IOCONA] = 24;
+    _reg[MCP_IOCONB] = 24;
+    _reg[MCP_GPPUA] = 0;
+    _reg[MCP_GPPUB] = 0;
+    _reg[MCP_INTFA] = 0;
+    _reg[MCP_INTFB] = 0;
+    _reg[MCP_INTCAPA] = 0;
+    _reg[MCP_INTCAPB] = 0;
+    _reg[MCP_GPIOA] = 0;
+    _reg[MCP_GPIOB] = 0;
+    _reg[MCP_OLATA] = 0;
+    _reg[MCP_OLATB] = 0;
+
     spi_init();
     spi_desabilita();
     spi_habilita();
