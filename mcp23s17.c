@@ -23,36 +23,19 @@ void mcp23S17_init(){
     _reg[MCP_INTFB] = 0;
     _reg[MCP_INTCAPA] = 0;
     _reg[MCP_INTCAPB] = 0;
-    _reg[MCP_GPIOA] = 0;
-    _reg[MCP_GPIOB] = 0;
+    _reg[MCP_GPIOA] = 255;
+    _reg[MCP_GPIOB] = 255;
     _reg[MCP_OLATA] = 0;
     _reg[MCP_OLATB] = 0;
 
     spi_init();
-    spi_desabilita();
-    spi_habilita();
-
-    uint8_t cmd = 0b01000000; // decimal = 64
-
-    spi_write(cmd);
-    spi_write(8); // porque o MCP_IOCONA é o oitavo registrador do MCP
-    spi_write(0x18);
-
-    spi_desabilita();
-
     writeAll();
 }
 
 void writeAll() {
-    uint8_t cmd = 0b01000000 | ((_addr & 0b111) << 1); // Estudar essa operação
-    spi_habilita();
-    spi_write(cmd);
-    spi_write(0);
-
     for (uint8_t i = 0; i < 22; i++) {
-        spi_write(_reg[i]);
+        escreve_no_registrador(i);
     }
-    spi_desabilita();
 }
 
 // Escreve o valor contido no nosso array _reg dentro do Chip do MCP.
