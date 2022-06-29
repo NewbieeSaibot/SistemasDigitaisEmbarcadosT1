@@ -68,7 +68,6 @@ void mcp23S17_configura_pino(uint8_t pino, uint8_t modo){
         dirReg = MCP_IODIRB;
         puReg = MCP_GPPUB;
     }
-
     switch (modo) {
         case OUTPUT:
             _reg[dirReg] &= ~(1<<pino); 
@@ -99,27 +98,13 @@ void mcp23S17_escreve_pino(uint8_t pino, uint8_t valor){
         latReg = MCP_OLATB;
     }
 
-    uint8_t modo = (_reg[dirReg] & (1<<pino)) == 0 ? OUTPUT : INPUT;
-
-    switch (modo) {
-        case OUTPUT:
             if (valor == 0) {
                 _reg[latReg] &= ~(1<<pino);
             } else {
                 _reg[latReg] |= (1<<pino);
             }
             escreve_no_registrador(latReg);
-            break;
-
-        case INPUT:
-            if (valor == 0) {
-                _reg[puReg] &= ~(1<<pino);
-            } else {
-                _reg[puReg] |= (1<<pino);
-            }
-            escreve_no_registrador(puReg);
-            break;
-    }
+           
 }
 
 
@@ -134,15 +119,7 @@ uint8_t mcp23S17_le_pino(uint8_t pino){
         latReg = MCP_OLATB;
     }
 
-    uint8_t modo = (_reg[dirReg] & (1<<pino)) == 0 ? OUTPUT : INPUT; 
-
-    switch (modo) {
-        case OUTPUT:
-            return _reg[latReg] & (1<<pino) ? HIGH : LOW;
-        case INPUT:
-            le_registrador(portReg);
-            return _reg[portReg] & (1<<pino) ? HIGH : LOW;
-    }
-    return 0;
-
+    
+    le_registrador(portReg);
+    return ((_reg[portReg] >> pino) & 1);   
 }

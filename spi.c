@@ -15,9 +15,8 @@ void spi_init(){
     pinMode(CLOCK, OUTPUT);
     pinMode(MOSI, OUTPUT);
     pinMode(MISO, INPUT);
-    spi_habilita();
-    delay_ms(50);
-    spi_desabilita();
+    digitalWrite(CLOCK, 0);
+    digitalWrite(CS, 1);
 }
 
 
@@ -38,10 +37,10 @@ uint8_t spi_write(uint8_t byte){
         bit = (byte >> (7 - x))&1;
         digitalWrite(MOSI, bit);
         digitalWrite(CLOCK, HIGH);
-        delay_ms(50);
+        delay_us(50);
         valor = (valor << 1)|digitalRead(MISO);
         digitalWrite(CLOCK, LOW);
-        delay_ms(50); 
+        delay_us(50); 
     }
     return valor;
 } 
