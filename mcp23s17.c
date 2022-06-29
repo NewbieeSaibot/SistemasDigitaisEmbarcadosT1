@@ -41,7 +41,7 @@ void writeAll() {
 // Escreve o valor contido no nosso array _reg dentro do Chip do MCP.
 // Observação: o MCP possui 22 registradores configuráveis;
 void escreve_no_registrador(uint8_t addr){
-    uint8_t cmd = 0b01000000 | ((_addr & 0b111) << 1); // Estudar essa operação
+    uint8_t cmd = 0b01000000 | ((_addr & 0b111) << 1); 
 
     spi_habilita();
     spi_write(cmd);
@@ -51,7 +51,7 @@ void escreve_no_registrador(uint8_t addr){
 }
 
 void le_registrador(uint8_t addr) {
-    uint8_t cmd = 0b01000001 | ((_addr & 0b111) << 1); // Estudar essa operação
+    uint8_t cmd = 0b01000001 | ((_addr & 0b111) << 1); 
     spi_habilita();
     spi_write(cmd);
     spi_write(addr);
@@ -71,7 +71,7 @@ void mcp23S17_configura_pino(uint8_t pino, uint8_t modo){
 
     switch (modo) {
         case OUTPUT:
-            _reg[dirReg] &= ~(1<<pino); // Estudar essa operação
+            _reg[dirReg] &= ~(1<<pino); 
             escreve_no_registrador(dirReg);
             break;
         case INPUT:
@@ -99,7 +99,7 @@ void mcp23S17_escreve_pino(uint8_t pino, uint8_t valor){
         latReg = MCP_OLATB;
     }
 
-    uint8_t modo = (_reg[dirReg] & (1<<pino)) == 0 ? OUTPUT : INPUT; // Estudar essa operação
+    uint8_t modo = (_reg[dirReg] & (1<<pino)) == 0 ? OUTPUT : INPUT;
 
     switch (modo) {
         case OUTPUT:
@@ -134,7 +134,7 @@ uint8_t mcp23S17_le_pino(uint8_t pino){
         latReg = MCP_OLATB;
     }
 
-    uint8_t modo = (_reg[dirReg] & (1<<pino)) == 0 ? OUTPUT : INPUT; // Estudar essa operação
+    uint8_t modo = (_reg[dirReg] & (1<<pino)) == 0 ? OUTPUT : INPUT; 
 
     switch (modo) {
         case OUTPUT:
